@@ -1,0 +1,381 @@
+<div class="container">
+    <div class="block">
+        <div *ngIf="enablePackageAdd" class="status">
+            <h1>Add Package</h1>
+            <div class="d-flex flex-row bg-secondary">
+                <div class="content">
+                    <form [formGroup]="registerform" (ngSubmit)="packageSubmit()">
+                        <div class="field space">
+                            <span class="label">Name</span>
+                            <input type="text" class="form-control" formControlName="PACKAGENAME"
+                                [(ngModel)]="package.packageName">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="PackageName.errors?.['required'] && (PackageName.touched || PackageName.dirty)">
+                            Package Name is Required
+                        </div>
+
+                        <div class="form-text text-danger"
+                            *ngIf="PackageName.errors?.['minlength'] && (PackageName.touched || PackageName.dirty)">
+                            Package Name should be between 5
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="PackageName.errors?.['pattern'] && (PackageName.touched || PackageName.dirty)">
+                            Package Name should start with Alphabet
+                        </div>
+
+
+                        <div class="field space">
+                            <span class="label">Location</span>
+                            <select class="form-control" formControlName="PACKAGELOCATION"
+                                [(ngModel)]="package.packageLocation">
+                                <option value="" disabled selected>Choose Location</option>
+                                <option *ngFor="let loc of locations">
+                                    {{loc.location}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="packageLocation.errors?.['required'] &&  packageLocation.touched  ">
+                            Location required
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">Offer From</span>
+                            <input type="date" class="form-control" formControlName="OFFERFROM"
+                                [(ngModel)]="package.offerFrom">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="offerFrom.errors?.['required'] &&  offerFrom.touched  ">
+                            Start Date required
+                        </div>
+                        <div class="field space">
+                            <span class="label">Offer To</span>
+                            <input type="date" class="form-control" formControlName="OFFERTO"
+                                [(ngModel)]="package.offerTo">
+                        </div>
+                        <div class="form-text text-danger" *ngIf="offerTo.errors?.['required'] &&  offerTo.touched  ">
+                            End Date required
+                        </div>
+                        <div class="field space">
+                            <span class="label">Slots</span>
+                            <input type="number" class="form-control" formControlName="SLOTCOUNT"
+                                [(ngModel)]="package.slotCount">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="slotCount.errors?.['required'] && ( slotCount.touched || slotCount.dirty)">
+                            Slots Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="slotCount.errors?.['pattern'] && ( slotCount.touched || slotCount.dirty)">
+                            Must have only digits
+                        </div>
+                        <div class="field space">
+                            <span class="label">People Count</span>
+                            <input type="number" class="form-control" formControlName="NOOFPEOPLE"
+                                [(ngModel)]="package.noOfPeople">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="noOfPeople.errors?.['required'] && ( noOfPeople.touched || noOfPeople.dirty)">
+                            Count Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="noOfPeople.errors?.['pattern'] && ( noOfPeople.touched || noOfPeople.dirty)">
+                            Must have only digits
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">Cost</span>
+                            <input type="number" class="form-control" formControlName="PACKAGECOST"
+                                [(ngModel)]="package.packageCost">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="packageCost.errors?.['required'] && ( packageCost.touched || packageCost.dirty)">
+                            Cost Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="packageCost.errors?.['pattern'] && ( packageCost.touched || packageCost.dirty)">
+                            Must have only digits
+                        </div>
+                        <div class="field space">
+                            <span class="label">Image</span>
+                            <input type="file" name="file_path" class="form-control" formControlName="IMAGEPATH"
+                                accept="image/*" (change)="onUploadFile($event)" [(ngModel)]="package.imagePath">
+                        </div>
+
+                        <div class="form-text text-danger"
+                            *ngIf="ImagePath.errors?.['required'] && ( ImagePath.touched || ImagePath.dirty)">
+                            Image Required
+                        </div>
+                        <div class="field space">
+                            <span class="label">Description</span>
+                            <textarea class="form-control" required name="Question" id="Question"
+                                formControlName="DESCRIPTION" [(ngModel)]="package.description" style="height:100px; ">
+                            </textarea>
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="description.errors?.['required'] && (description.touched || description.dirty)">
+                            Description is Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="description.errors?.['minlength'] && (description.touched || description.dirty)">
+                            Description should be between 2-150 Chars only
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="description.errors?.['maxlength'] && (description.touched || description.dirty)">
+                            Description should be between 2-150 Chars only
+                        </div>
+                        <br><br><br>
+                        <div class="add">
+                            <div>
+                                <button class="btn btn-primary" type="submit"
+                                    [disabled]="registerform.invalid">Submit</button>
+                            </div>
+                            <div>
+
+                                <button type="reset" class=" btn reset">Reset</button>
+                            </div>
+                            <div>
+                                <button class="btn cancel" (click)="cancelAdding()">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+        <!-- ==================================================================================== -->
+
+        <div *ngIf="enablePackageupdation" class="status">
+            <h1> Update Package</h1>
+            <div class="d-flex flex-row bg-secondary">
+                <div class="content">
+                    <form [formGroup]="registerform" (ngSubmit)="packageUpdate()">
+                        <div class="field space">
+                            <span class="label">Name</span>
+                            <input type="text" class="form-control" formControlName="PACKAGENAME"
+                                [(ngModel)]="updatepackage.packageName">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="PackageName.errors?.['required'] && (PackageName.touched || PackageName.dirty)">
+                            Package Name is Required
+                        </div>
+
+                        <div class="form-text text-danger"
+                            *ngIf="PackageName.errors?.['minlength'] && (PackageName.touched || PackageName.dirty)">
+                            Package Name should be between 5
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="PackageName.errors?.['pattern'] && (PackageName.touched || PackageName.dirty)">
+                            Package Name should start with Alphabet
+                        </div>
+                        <div class="field space">
+                            <span class="label">Location</span>
+                            <select class="form-control" formControlName="PACKAGELOCATION"
+                                [(ngModel)]="updatepackage.packageLocation">
+                                <option value="" disabled selected>Choose Location</option>
+                                <option *ngFor="let loc of locations">
+                                    {{loc.location}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="packageLocation.errors?.['required'] &&  packageLocation.touched  ">
+                            Location required
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">Offer From</span>
+                            <input type="date" class="form-control" formControlName="OFFERFROM"
+                                [(ngModel)]="updatepackage.offerFrom">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="offerFrom.errors?.['required'] &&  offerFrom.touched  ">
+                            Start Date required
+                        </div>
+                        <div class="field space">
+                            <span class="label">Offer To</span>
+                            <input type="date" class="form-control" formControlName="OFFERTO"
+                                [(ngModel)]="updatepackage.offerTo">
+                        </div>
+                        <div class="form-text text-danger" *ngIf="offerTo.errors?.['required'] &&  offerTo.touched  ">
+                            End Date required
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">Slots</span>
+                            <input type="number" class="form-control" formControlName="SLOTCOUNT"
+                                [(ngModel)]="updatepackage.slotCount">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="slotCount.errors?.['required'] && ( slotCount.touched || slotCount.dirty)">
+                            Slots Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="slotCount.errors?.['pattern'] && ( slotCount.touched || slotCount.dirty)">
+                            Must have only digits
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">People Count</span>
+                            <input type="number" class="form-control" formControlName="NOOFPEOPLE"
+                                [(ngModel)]="updatepackage.noOfPeople">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="noOfPeople.errors?.['required'] && ( noOfPeople.touched || noOfPeople.dirty)">
+                            Count Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="noOfPeople.errors?.['pattern'] && ( noOfPeople.touched || noOfPeople.dirty)">
+                            Must have only digits
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">Cost</span>
+                            <input type="number" class="form-control" formControlName="PACKAGECOST"
+                                [(ngModel)]="updatepackage.packageCost">
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="packageCost.errors?.['required'] && ( packageCost.touched || packageCost.dirty)">
+                            Cost Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="packageCost.errors?.['pattern'] && ( packageCost.touched || packageCost.dirty)">
+                            Must have only digits
+                        </div>
+
+                        <div class="field space">
+                            <span class="label">Image</span>
+                            <input type="file" name="file_path" class="form-control" formControlName="IMAGEPATH"
+                                accept="image/*" (change)="onUploadFile($event)" [(ngModel)]="updatepackage.imagePath">
+                        </div>
+
+                        <div class="form-text text-danger"
+                            *ngIf="ImagePath.errors?.['required'] && ( ImagePath.touched || ImagePath.dirty)">
+                            Image Required
+                        </div>
+                        <div class="field space">
+                            <span class="label">Description</span>
+                            <textarea class="form-control" required name="Question" id="Question"
+                                formControlName="DESCRIPTION" [(ngModel)]="updatepackage.description"
+                                style="height:100px; ">
+                            </textarea>
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="description.errors?.['required'] && (description.touched || description.dirty)">
+                            Description is Required
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="description.errors?.['minlength'] && (description.touched || description.dirty)">
+                            Description should be between 2-150 Chars only
+                        </div>
+                        <div class="form-text text-danger"
+                            *ngIf="description.errors?.['maxlength'] && (description.touched || description.dirty)">
+                            Description should be between 2-150 Chars only
+                        </div>
+                        <br><br><br>
+                        <div class="add">
+                            <button class="btn btn-primary" type="submit"
+                                [disabled]="registerform.invalid">Update</button>
+
+                            <button type="reset" class="btn reset">Reset</button>
+                            <button class="btn cancel" (click)="cancelAdding()">Cancel</button>
+                        </div>
+
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================================================================================== -->
+        <div class="package" *ngIf="enablePackageList">
+            <h1>Packages List</h1>
+            <div *ngIf="enableAddIcon">
+                <a (click)="enablePackageAdding()"> <img class="imgAdd" title="Add Package"
+                        src="https://cdn-icons-png.flaticon.com/512/7032/7032300.png" alt="Add Package"> </a>
+            </div>
+            <div class="search">
+                <input type="search" class="form-control" [(ngModel)]="searchInput.packageName"
+                    placeholder="Search Package Name">
+            </div>
+            <br><br>
+            <div class="packClass">
+                <div class="row">
+                    <ng-container *ngFor="let item of packages   | filterBy :searchInput  ">
+                        <div class="col-sm-4">
+                            <div class="d-flex flex-row bg-secondary">
+                                <div class="content">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <p class="card-title">{{item.packageName}}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <img class="imgPath" [src]="item.imagePath" style="width: 230px;"><br><br>
+                                            <div class="middle">
+                                                <div class="text">{{item.description}}</div>
+                                            </div>
+                                            <div class="card-subtitle" align="left" style="display:flex">
+                                                <div style="padding-right:30px">
+                                                    <strong>Location: </strong> <br>
+                                                    <strong>Time From: </strong> <br>
+                                                    <strong>Time To: </strong> <br>
+                                                    <strong>Available: </strong><br>
+                                                    <strong>Count: </strong><br>
+                                                    <strong>Price: </strong>
+
+                                                </div>
+                                                <div>
+
+                                                    {{item.packageLocation}} <br>
+                                                    {{item.offerFrom }}<br>
+                                                     {{item.offerTo}} <br>
+                                                    {{item.slotCount}}-slots <br>
+                                                    {{item.noOfPeople}}-peoples <br>
+                                                    {{item.packageCost| currency:'INR'}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-footer" *ngIf="item.status">
+                                           
+                                            <b *ngIf="item.slotCount==0 && item.offerFrom > currentDate">No Slots</b>
+                                            <b *ngIf="item.slotCount==0 && item.offerFrom <currentDate" >No Slots & Package Expired</b>
+                                            <b *ngIf="item.slotCount!=0 && item.offerFrom <currentDate">Package Expired</b>
+
+                                                <button type="button" class="btn btn-link" id="edit"
+                                                    (click)="enablePackageUpdation(item.id)"><span
+                                                        class="bi bi-pencil-square"></span></button>
+                                                <button type="button" class="btn btn-link" id="delete"
+                                                    (click)="deleteById(item.id)"><span
+                                                        class="bi bi-trash-fill"></span></button>
+    
+                                                 
+                                            </div>
+                                           
+    
+                                            <div class="card-footer" *ngIf="!item.status">
+                                                <b>Package not available</b>
+    
+                                                <button type="button" class="btn btn-link reactive"
+                                                    (click)="activatePackage(item.id)"><span
+                                                        class="bi bi-arrow-clockwise"></span></button>
+    
+                                            </div>
+                                            
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </ng-container>
+    
+                    </div>
+                    <div class="search" *ngIf="(packages | filterBy : searchInput).length === 0">
+                        <p class="nomatch"> No Match Found </p>
+                    </div>
+                </div>
+            </div>
+        </div>

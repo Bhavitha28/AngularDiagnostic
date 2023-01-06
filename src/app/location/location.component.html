@@ -1,0 +1,182 @@
+<div class="container">
+
+    <div *ngIf="displayAddlocation">
+        <h1 >Add Location
+        </h1>
+        <br>
+
+        <div class="d-flex flex-row bg-secondary">
+            <div class="content">
+
+                <form [formGroup]="registerform" (ngSubmit)="formSubmit()">
+                    <div class="field space">
+                        <span class="fa fa-location"></span>
+
+                        <input type="text" class="form-control" id="LOCATION" formControlName="LOCATION"
+                            [(ngModel)]="addLocation.location" (keyup)="verifyLocation()">
+                    </div>
+
+                    <div class="form-text" >
+                        <span [ngClass]="{'text-success':isLocationValid,'text-danger':isLocationInValid}">{{locationMsg}}</span>
+                    </div>
+                    <div class="form-text text-danger"
+                        *ngIf="location.errors?.['required'] && (location.touched || location.dirty)">
+                        Location is Required
+                    </div>
+                    <div class="form-text text-danger"
+                        *ngIf="location.errors?.['minLength'] && (location.touched || location.dirty)">
+                        Location should be min 2 characters
+                    </div>
+                    <div class="form-text text-danger"
+                        *ngIf="location.errors?.['pattern'] && (location.touched || location.dirty)">
+                        Location should start with Alphabet
+                    </div>
+
+                    <br>
+
+
+                    <div class="sub">
+                        <button class="btn btn-primary" type="submit" [disabled]="registerform.invalid">Add
+                            Location</button> &nbsp;&nbsp;
+
+                        <button class="btn btn-danger" type="button" (click)="getAllLocations()">
+                            Cancel</button>
+                    </div>
+
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div *ngIf="displaylocation">
+
+        <h1 >LOCATIONS</h1>
+
+        <a (click)="displayadd()"> <img class="imgAdd" 
+                   title="Add Location"
+                    src="https://www.shareicon.net/data/256x256/2016/06/27/623616_add_256x256.png" alt="Add Package"> </a>
+        <div class="row">
+                <div class="d-flex flex-row">
+                <table class="table table-striped">
+
+                    <thead>
+
+                        <tr>
+
+                            <th scope="col" (click)="sort('id')">LocationId&nbsp; &nbsp;<i class="fa fa-sort"></i>
+                            </th>
+
+                            <th scope="col" (click)="sort('location')">LocationName&nbsp; &nbsp;<i
+                                    class="fa fa-sort"></i></th>
+
+
+
+
+
+
+                            <th colspan="2" style="text-align:center ;">Actions </th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let item of locationLists">
+
+                            <td scope="row" class="txt"> {{item.id}}</td>
+
+                            <td scope="row" class="txt">{{item.location}}</td>
+
+                            <td *ngIf="item.isActive==true">
+
+                                <button mat-icon-button color="warn" (click)="deleteById(item.id)">
+
+                                    <mat-icon>delete</mat-icon>
+
+                                </button>
+
+                            </td>
+                            <td *ngIf="item.isActive==false">
+
+                                <button mat-icon-button color="primary" (click)="activateById(item.id)">
+
+                                    <mat-icon>add_location</mat-icon>
+
+                                </button>
+
+
+
+                            </td>
+                            <td *ngIf="item.isActive==true">
+
+                                <button mat-icon-button color="primary" (click)="displayupdateForm(item.id)">
+
+                                    <mat-icon>mode_edit</mat-icon>
+
+                                </button>
+
+
+
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+           
+           
+                
+                </div>
+         
+        </div>
+
+    </div>
+    <div *ngIf="displayFormUpdation">
+
+        <div class="d-flex flex-row bg-secondary">
+            <div class="content">
+                <br>
+                <h1 class="text-center" style=" color: #0d475f;
+              "><b>UPDATE Location</b></h1>
+
+                <form [formGroup]="registerform" (ngSubmit)="updateformSubmit()">
+
+                    <div>
+                        <div class="field space">
+                            <span class="fa fa-location"></span>
+                            <input type="text" class="form-control" id="NAME" formControlName="LOCATION"
+                                placeholder="FullName" [(ngModel)]="updateLocation.location">
+
+                            <div class="form-text text-warning"
+                                *ngIf="location.errors?.['required'] && (location.touched || location.dirty)">
+                                Location is Required
+                            </div>
+                            <div class="form-text text-warning"
+                                *ngIf="location.errors?.['minlength'] && (location.touched || location.dirty)">
+                                Location should be min 3 letters
+                            </div>
+                            <div class="form-text text-warning"
+                                *ngIf="location.errors?.['pattern'] && (location.touched || location.dirty)">
+                                Location should have only Alphabets
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field space" style="padding-left: 90px;">
+                        <button class="btn bg-primary" type="submit" [disabled]="registerform.invalid">update</button>
+
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,172 @@
+<div class="container">
+
+
+
+    <div class="packlist" *ngIf="enablePackageList">
+        <h1>PACKAGE LIST</h1>
+        <div *ngIf="enableCartIcon">
+            <a (click)="goCart()"> <img class="imgAdd" imgFirst title="Cart"
+                    src="https://img.freepik.com/premium-vector/vector-shopping-cart-icon-paper-sticker-with-shadow-colored-shopping-symbol-isolated_118339-1774.jpg?w=2000"
+                    alt="Add Package"> </a>
+        </div>
+
+        <div class="search">
+            <input type="search" class="form-control" [(ngModel)]="searchInput.packageName"
+                placeholder="Search Package Name">
+        </div>
+
+        <div class="packClass">
+
+            <div class="row">
+                <ng-container *ngFor="let item of packages   | filterBy :searchInput  ">
+                    <div class="col-sm-4" *ngIf="item.slotCount!=0">
+                        <div class="d-flex flex-row bg-secondary">
+                            <div class="content">
+                                <div class="card">
+                                    <br>
+                                    <div class="card-header">
+                                        <p class="card-title">{{item.packageName}}</p>
+                                    </div>
+                                    <div class="card-body" align="center">
+                                        <img class="imgPath" [src]="item.imagePath">
+                                        <div class="middle">
+                                            <div class="text">{{item.description}}</div>
+                                        </div>
+                                        <div class="card-subtitle">
+                                            <div class="heading" style="padding-right:30px">
+                                                <strong>Location: </strong> <br>
+                                                <strong>Time From:</strong> <br>
+                                                <strong>Time To:</strong> <br>
+                                                <strong>Count: </strong><br>
+                                                <strong>Price: </strong>
+
+                                            </div>
+                                            <div>
+
+                                                {{item.packageLocation}} <br>
+                                                {{item.offerFrom }}<br>
+                                                {{item.offerTo}} <br>
+                                                {{item.noOfPeople}}-peoples <br>
+                                                {{item.packageCost| currency:'INR'}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer" *ngIf="item.status && item.slotCount!=0">
+
+                                        <a (click)="buyPackage(item.id)"> <img class="buyimg" imgFirst title="Buy Now"
+                                                src="https://www.freeiconspng.com/uploads/hd-buy-button-png-14.png"
+                                                alt="Buy"> </a>
+
+
+                                        <a (click)="cartPackage(item.id)"> <img class="cartimg" imgFirst
+                                                title="Add to Cart"
+                                                src="https://static.vecteezy.com/system/resources/thumbnails/014/322/530/small/shopping-cart-add-on-order-icon-illustration-glyph-style-design-with-color-and-plus-sign-png.png"
+                                                alt="cart"> </a>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-container>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="enableBuyPackage" style="width: 1200px;">
+        <h1 align="left" style="color:green"><b>Buy Package</b></h1>
+
+        <div class="packClass">
+
+            <div class="row">
+                <ng-container>
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-row bg-secondary">
+                            <div class="content">
+                                <div class="card">
+
+                                    <div class="card-header">
+                                        <p class="card-title">{{package.packageName}}</p>
+                                    </div>
+                                    <div class="card-body buy" align="center">
+                                        <img class="imgPath" [src]="package.imagePath">
+                                        <div class="middle">
+                                            <div class="text">{{package.description}}</div>
+                                        </div>
+                                        <div class="card-subtitle">
+                                            <div class="heading">
+                                                <strong>Location: </strong> <br>
+                                                <strong>Time From: </strong> <br>
+                                                <strong>Time To: </strong> <br>
+                                                <strong>Count: </strong><br>
+                                                <strong>Price: </strong>
+
+                                            </div>
+                                            <div>
+
+                                                {{package.packageLocation}} <br>
+                                                {{package.offerFrom }} <br>
+                                                {{package.offerTo}} <br>
+                                                {{package.noOfPeople}}-peoples <br>
+                                                {{package.packageCost| currency:'INR'}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-container>
+                <div class="row">
+                    <ng-container>
+                        <div class="col-sm-6">
+                            <div class="d-flex flex-row bg-secondary">
+
+                                <div class="card bill">
+                                    <div class="card-header">
+                                        <button class="button button1" (click)="dec(quantity)">-</button>
+                                        <span class="quantity">{{quantity}}</span>
+
+                                        <button class="button button2" (click)="inc(quantity)">+</button>
+                                        <br><br>
+                                        <div class="test" *ngIf="slotcheck">
+                                            Only {{quantity}} Slots Available
+                                        </div>
+                                    </div>
+                                    <div class="card-body total" align="center">
+
+                                        <h3>TotalBill:</h3>
+                                        <p class="solid"> {{totalBill |currency:'INR'}}</p>
+
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-success" (click)="toPay()">Proceed
+                                            To Pay</button>&nbsp;&nbsp;
+                                        <button class="btn btn-danger" (click)="getAllPackages()">cancel</button>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

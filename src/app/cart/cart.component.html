@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div *ngIf="enablecart">
+        <h1>CART</h1>
+        <table class="table table-hover">
+
+
+            <tbody>
+
+                <tr *ngFor="let car of cart; let i=index">
+                    <th scope="row"> <img class="imgPath" [src]="car.imagePath"></th>
+
+
+                    <td>{{car.packageName}} <br> {{car.packageLocation}} <br> 
+                        {{car.noOfPeople}} persons<br> {{car.packageCost| currency:'INR'}}
+                    </td>
+                    <td *ngIf="car.slotCount!=0 && car.isAvailable!=0">
+                        <div class="incdec">
+                        <button class="button button1" (click)="dec(i)">-</button>
+                        <span class="quantity">{{car.quantity}}</span>
+
+                        <button class="button button2" (click)="inc(i)">+</button>
+                    </div>
+                        <div class="notaval" *ngIf="car.quantity==car.slotCount">
+                            Only {{car.quantity}} Slots Available
+                        </div>
+                        <div class="cost">
+                        {{car.cost * car.quantity | currency:'INR'}}
+                    </div>
+                    </td>
+
+                    <td class="notaval" *ngIf="car.slotCount==0 || car.isAvailable==0">
+
+                        <b *ngIf="car.slotCount==0 && car.isAvailable!=0 " >slots not available</b>
+                        <b  *ngIf="car.isAvailable==0 && car.slotCount!=0">Expired</b>
+                        <b *ngIf="car.slotCount==0 && car.isAvailable==0 " >slots not available and expired</b>
+                    </td>
+
+                   
+                    <td *ngIf="car.slotCount!=0 && car.isAvailable!=0"> <button class="btn btn-success"
+                            (click)="buynow(i)">BUY</button> </td>
+                    <td *ngIf="car.slotCount==0 || car.isAvailable==0"> <button class="btn btn-success" 
+                            (click)="buynow(i)" disabled>BUY</button> </td>
+                    <td>
+                        <div class="deletebtn">
+                            <i (click)="deleteCart(i)"><span
+                                    class="bi bi-trash-fill"></span></i>
+                        </div>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+
+
+        <div class="final">
+            <h3>TotalCost: {{totalCost}}</h3>
+            <button class="btn btn-success"  (click)="checkOut()">CheckOut</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-danger" routerLink="/userpackage">Go Back</button>
+
+        </div>
+
+    </div>
+    <div *ngIf="!enablecart" class="nocart">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_rvIVmAIqI-myiIRMQfvdIyg3nq3mkA1KgdmtPOr9tDRIETOllMXcKhX-kA4MiW_4bfQ&usqp=CAU"
+           >
+        <h2>YOUR CART IS EMPTY</h2>
+        <button class="btn btn-primary" routerLink="/userpackage">BUY NOW</button>
+    </div>
+</div>

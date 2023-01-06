@@ -1,0 +1,115 @@
+.container {
+    padding-top: 80px;
+
+    margin-left: 300px;
+}
+
+h1 {
+    text-align: left;
+    color: green;
+    font-weight: bold;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+.bi-eye-fill {
+    font-size: 25px;
+    color: rgb(8, 101, 43)
+}
+
+.page {
+    position: relative;
+}
+
+.table {
+    width: 100%;
+
+}
+
+.table-striped {
+    background: rgb(226, 228, 236);
+    ;
+}
+
+.table thead {
+    background: rgb(137, 177, 237);
+}
+
+.table td {
+    text-align: left;
+}
+
+.bootdey {
+    margin-left: 170px;
+    width: 1000px;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+h4 {
+    color: rgb(19, 6, 133);
+    margin-top: 20px;
+}
+
+.fa-heartbeat {
+    font-size: 30px;
+    color: rgb(255, 5, 5);
+    padding-left: 5px;
+}
+
+.invoice-info-label {
+    color: rgb(6, 133, 25)
+}
+
+.title {
+    font-size: 30px;
+}
+
+.invoice-info {
+    float: right;
+}
+
+.arrowed-right {
+    background-color: rgb(106, 235, 106);
+    margin-right: 5px;
+    text-align: center
+}
+
+.companyinfo {
+    color: rgb(71, 71, 238);
+}
+
+.blue {
+    color: rgb(71, 71, 238);
+    font-size: 10px;
+}
+
+.orderlist {
+    margin-top: 50px;
+}
+
+.tablehead {
+    background-color: rgb(137, 177, 237)
+}
+
+.receipt {
+    padding-left: 100px;
+
+}
+
+.total {
+    float: right;
+
+}
+
+.thankyou {
+    padding-top: 80px;
+    margin-top: 20px;
+    color: green;
+}

@@ -1,0 +1,25 @@
+
+   .container{
+    padding-left:150px;
+    padding-top:100px;
+
+   }
+   .title{
+    text-align: left;color:green;
+    font-weight: bold;
+    text-decoration:underline;
+   }
+.card{
+  width: 30rem
+}
+.card-img-top{
+  height:250px;width:290px;
+}
+h1{
+  color:blue;
+  font-weight: bold;
+  text-decoration:underline;
+}
+.contact{
+  padding-top: 50px;
+}

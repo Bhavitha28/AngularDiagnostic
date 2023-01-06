@@ -1,0 +1,272 @@
+
+.container{
+  
+    padding-top: 65px;
+    padding-left:120px;
+    
+}
+.packlist{
+    width: 1200px;
+}
+h1{
+    text-align: left;
+    color:green;
+    font-weight: bold;
+}
+.search{
+    padding-bottom: 40px;
+    text-align: right;
+    padding-top: 40px;
+    width:180px;
+}
+.imgAdd{
+    float: right;
+    height:100px;
+    padding-top: 10px;
+    margin-right: 0px;
+    
+}
+.buyimg{
+    height:60px;
+}
+.cartimg{
+    height:50px;
+    float: right;
+}
+.card-header{
+    height: 40px;
+}
+.card-body{
+   
+    height: 290px;
+}
+.card-body img{
+    width: 260px;
+    padding-bottom: 30px;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;  
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .text {
+    background-color: rgba(128, 128, 128, 0.667);
+    color: rgb(235, 226, 226);
+    font-size: 16px;
+    padding: 16px 32px; 
+  }
+
+  .card-subtitle{
+    text-align: left;
+    display:flex;
+  }
+  .heading{
+    padding-right:30px
+  }
+  .card-body:hover .imgPath {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+    /* opacity: 0.6; */
+  }
+  
+  .card-body:hover .middle {
+    opacity: 1;
+  }
+
+
+.packClass{
+    display: flex;
+   
+   padding-top: 50px;
+}
+
+
+.imgFirst{
+    height: 100px; 
+    width: 200px;
+ 
+}
+
+.imgAdd:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.imgPath{
+    width:150px;
+    height: 150px;
+   opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;  
+  transition: 0.3s ease-in-out;
+}
+
+.search-icon{
+    position: absolute;
+    z-index: 22;
+    right: 66%;
+    color: blue;
+    margin-top: -23px;
+}
+
+.bill{
+    padding-left: 20px;
+    padding-top: 30px;
+}
+
+.imgIcon{
+    height: 20px; 
+}
+
+.block{
+    margin: 30px; 
+}
+.quantity{
+    padding: 10px;
+    
+    }
+    .button {
+      border: none;
+      color: white;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+form{
+    width: 800px;
+}
+
+.row{
+    padding-bottom: 10px;
+}
+.col{
+    padding-right: 30px;
+}
+.d-flex{
+    display: flex;
+    flex-wrap:nowrap;
+    padding-bottom: 40px;
+    
+}
+.card-footer{
+    height:70px;
+    float: right;
+}
+.content {
+    
+    text-align: center;
+   
+    width: 600px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height:auto;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(17, 3, 107, 0.75);
+}
+.field {
+    position: relative;
+    height: 45px;
+    width:60%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.94);
+}
+
+.field span {
+    color: #222;
+    width: 100px;
+    line-height: 45px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.field input {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: 2px rgb(165, 162, 157) solid;
+    color: #222;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.field textarea{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline:2px rgb(165, 162, 157) solid;
+    color: #222;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+.field select{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: 2px rgb(165, 162, 157) solid;
+    color: #222;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.space {
+    margin-top: 16px;
+}
+.solid{
+    border-style: solid;
+    color:blue;
+   height:30px;
+   width: 100px;
+  
+   float: left;
+}
+
+.buy{
+    width:250px;
+    height: 290px;
+    padding-bottom: 10px;
+}
+
+.button1 {
+    font-size:16px;
+    padding-left: 8px;
+    padding-right: 8px;
+      background-color: #f57474;
+    } 
+    .button2 {
+      
+      background-color:  #4CAF50;
+    } 
+    .test{
+        color: red;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+    h3{
+        font-weight: bold;
+        text-align: left;
+    }
+    .total{
+        height: 190px; 
+        padding-top: 30px;
+    }
+    .btn-success{
+        color: white;
+        
+    }
+ .btn-danger{
+    color: white;
+    
+ }

@@ -1,0 +1,98 @@
+.container {
+  padding-top: 100px;
+
+  margin-right: 0px;
+  margin-left: 300px;
+}
+
+h1 {
+  padding-bottom: 20px;
+  text-align: left;
+  color: green;
+  font-weight: bold;
+
+}
+
+.imgPath {
+  width: 200px;
+  opacity: 1;
+  height: 150px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.table {
+  width: 100%;
+  border: 2px solid rgb(139, 135, 135);
+
+}
+
+.table td {
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.quantity{
+padding: 10px;
+
+}
+.button {
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {
+font-size:16px;
+padding-left: 8px;
+padding-right: 8px;
+  background-color: #f57474;
+} 
+.button2 {
+  
+  background-color:  #4CAF50;
+} 
+.notaval{
+  color: red;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.cost{
+  padding-top: 10px;
+}
+.btn-success{
+  color: white;
+}
+.btn-danger{
+  color: white; 
+}
+
+.bi-trash-fill{
+  font-size: 30px;
+  color:red
+}
+.final{
+  float: right;
+}
+h3{
+  padding-right:30px;
+  font-weight: bold; 
+}
+.nocart{
+text-align: center;}
+.nocart img{
+  height:400px;width:500px
+
+}
+h2{
+  color:red;
+}
+.btn-primary{
+  color: white;
+}

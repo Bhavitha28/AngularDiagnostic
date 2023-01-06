@@ -1,0 +1,89 @@
+<div *ngIf="loggedIn">
+<div class="sidenav">
+  <ul class="nav-list">  
+    <li class="nav-list-item " >
+        <i class="fa-solid fa-chalkboard"></i>
+       
+            <a *ngIf="role=='Admin'"  routerLink="admin-dashboard">DashBoard</a> 
+            <a *ngIf="role=='Normal'" href="normalDashboard">DashBoard</a>  
+        
+    </li>
+
+  
+<!-- ====================================Admin ==========================      -->
+    <div *ngIf="role=='Admin'">
+        <li class="nav-list-item " >
+            <i class="fa-solid fa-box-open"></i>
+            <span>
+                <a routerLink='adminpackage'>Packages</a>
+            </span>
+       </li>
+
+        <li class="nav-list-item  " >
+            <i class="fa-solid fa-book"></i>
+            <span >
+                <a   routerLink='booking'>Bookings</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item  " >
+            <i class="fa-solid fa-map-marker"></i>
+            <span>
+                <a   routerLink='location'>Locations</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item  " >
+            <i class="fa-solid fa-users"></i>
+            <span >
+                <a   routerLink='userdetails'  >Users</a>
+            </span>
+        </li>
+
+    </div>
+
+    <!-- ====================================User ==========================      -->
+    <div *ngIf="role=='Normal'">
+        <li class="nav-list-item " >
+            <i class="fa-solid fa-box-open"></i>
+            <span >
+                <a routerLink='userpackage'>Packages</a>  
+            </span>
+       </li>
+
+        <li class="nav-list-item  " >
+            <i class="fa-solid fa-book"></i>
+            <span >
+                <a   routerLink='myorders'>MyOrders</a>
+            </span>
+        </li>
+
+        <li class="nav-list-item " >
+            <i class="fa-solid fa-shopping-cart"></i>
+            <span>
+                <a [routerLink]="['cart', user]">Cart</a>
+            </span>
+        </li>
+    
+
+    </div>
+    
+    
+    
+
+    <li class="nav-list-item  " >
+        <i class="fa-solid fa-address-card"></i>
+        <span >
+            <a   routerLink='profile'>Profile</a>
+        </span>
+    </li>
+
+    <li class="nav-list-item  " >
+        <i class="fa-solid fa-circle-info"></i>
+        <span >
+            <a   routerLink='about'>About</a>
+        </span>
+    </li>
+
+</ul>
+</div>

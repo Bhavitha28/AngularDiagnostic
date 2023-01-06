@@ -1,0 +1,69 @@
+.container {
+    padding-top: 80px;
+
+    margin-left: 300px;
+}
+
+h1 {
+    text-align: left;
+    color: green;
+    font-weight: bold;
+}
+
+.search {
+    float: left;
+    padding-bottom: 30px;
+}
+
+.records {
+    padding-left: 750px;
+
+}
+
+select {
+    border-radius: 5px;
+    background-color: #2687c0;
+    color: #e3f2fd;
+}
+
+h4 {
+    color: green;
+
+}
+
+i {
+    padding-left: 10px;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+.page {
+    position: relative;
+}
+
+.final {
+    float: right;
+}
+
+.table {
+    width: 100%;
+
+
+}
+
+.table-striped {
+    background: rgb(226, 228, 236);
+    ;
+}
+
+.table thead {
+    background: rgb(137, 177, 237);
+}
+
+.table td {
+    text-align: left;
+}

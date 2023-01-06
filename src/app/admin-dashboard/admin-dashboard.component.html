@@ -1,0 +1,29 @@
+<div class="container">
+    <div>
+        <div class="row">
+            <div class="col-sm-1 col-md-4 col-lg-7">
+                <h1>Graphical Analysis</h1>
+                <canvas id="bar"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="graph">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Sr N0 </th>
+                    <th scope="col">Location</th>
+                    <th class="count" scope="col">Total Bookings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let loc of locataionList; let i = index">
+
+                    <th scope="row">{{i+1}} </th>
+                    <td scope="row">{{loc.location}}</td>
+                    <td scope="row" style="text-align: center;"> {{loc.count}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

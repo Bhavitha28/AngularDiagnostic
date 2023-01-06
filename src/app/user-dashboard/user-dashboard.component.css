@@ -1,0 +1,37 @@
+.container-fluid{
+    padding-top: 3rem;
+    padding-left: 3.3rem;
+}
+.container{
+    padding-left: 98px;
+    padding-top: 8rem;
+}  
+
+.row{
+    margin-left: 50px;
+}
+
+table{
+   margin-left: 85px;
+   width:100%;
+}
+
+
+.table-striped {
+    background:rgb(226, 228, 236); ;
+}
+.table thead{
+    background: rgb(137, 177, 237);
+}
+.table td{
+    text-align: left;
+}
+.graph{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+.count{
+    text-align: center;
+}

@@ -1,0 +1,90 @@
+.container{
+    padding-left:150px;
+    padding-top:90px;
+    padding-right:300px;
+}
+h1{
+    text-align: left;color:green;
+    font-weight: bold;
+}
+.imgAdd{
+    height:120px;
+    padding-top: 10px;
+    padding-top: 20px;
+    margin-right: 0px; 
+}
+.d-flex{
+    display: flex;
+    flex-wrap:nowrap;
+    
+}
+.form-text{
+    padding-left:40px;
+    text-align: left;
+}
+.page{
+    position: relative;
+}
+.content {
+    
+    text-align: center;
+   padding-top: 40px;
+    width:100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    height:auto;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(17, 3, 107, 0.75);
+}
+.sub{
+    padding-left:80px
+}
+.txt{
+    text-align: left;
+}
+
+.field {
+    position: relative;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.94);
+}
+
+.field span {
+    color: #222;
+    width: 40px;
+    line-height: 45px;
+    padding: 0 10px;
+}
+
+.field input {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: 2px rgb(91, 88, 84) solid;
+    color: #222;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.space {
+    margin-top: 16px;
+}
+
+.table{
+    width:auto;
+  
+}
+
+.table-striped {
+    background:rgb(226, 228, 236); ;
+}
+.table thead{
+    background: rgb(137, 177, 237);
+}
+.table td{
+    text-align: left;
+}
+

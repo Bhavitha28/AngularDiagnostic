@@ -1,0 +1,120 @@
+<div class="bg-img">
+    <div class="content">
+        <header>Signup</header>
+        <form [formGroup]="registerform" (ngSubmit)="formSubmit()">
+            <div>
+                <div class="field space">
+                    <span class="fa fa-user-circle"></span>
+                    <input type="text" class="form-control" id="NAME" formControlName="NAME" placeholder="FullName"
+                        [(ngModel)]="user.name">
+                </div>
+
+              
+
+                <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">
+                    Name is Required
+                </div>
+                <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty)">
+                    Name should be min 3 letters
+                </div>
+                <div class="form-text text-danger" *ngIf="name.errors?.['pattern'] && (name.touched || name.dirty)">
+                    Name should have only Alphabets
+                </div>
+            </div>
+
+
+
+            <div>
+                <div class="field space">
+                    <span class="fa fa-user"></span>
+
+                    <input type="text" class="form-control" id="USERNAME" formControlName="USERNAME"
+                        [(ngModel)]="user.userName" placeholder="Username" (keyup)="verifyUserName()">
+                </div>
+                <div class="form-text">
+                    <span [ngClass]="{'text-success':isUserValid,'text-danger':isUserInValid}">{{userMsg}}</span>
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Username.errors?.['required'] && ( Username.touched || Username.dirty)">
+                    Userame required
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Username.errors?.['minlength'] && (Username.touched || Username.dirty)">
+                    minimum length of 5
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Username.errors?.['pattern'] && (Username.touched || Username.dirty)">
+                    username should start with Alphabet
+                </div>
+            </div>
+
+            <div>
+                <div class="field space">
+                    <span class="fa fa-lock"></span>
+                    <input type="password" class="form-control" id="PASSWORD" formControlName="PASSWORD"
+                        [(ngModel)]="user.password" placeholder="Password">
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Password.errors?.['required'] && ( Password.touched || Password.dirty)">
+                    Password Required
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Password.errors?.['pattern'] && ( Password.touched || Password.dirty)">
+                    Must have 1-Upper, 1-lower,1-special char,1-digit,no spaces
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Password.errors?.['minLength'] && ( Password.touched || Password.dirty)">
+                    Min chars 8 only
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Password.errors?.['maxLength'] && ( Password.touched || Password.dirty)">
+                    Max chars 16 only
+                </div>
+
+
+            </div>
+            <div>
+                <div class="field space">
+                    <span class="fa fa-mobile"></span>
+                    <input type="text" class="form-control" id="mobile" formControlName="MOBILENUMBER"
+                        [(ngModel)]="user.mobileNumber" placeholder="MobileNumber">
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="MobileNo.errors?.['required'] && ( MobileNo.touched || MobileNo.dirty)">
+                    Mobile number required
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="MobileNo.errors?.['pattern'] && ( MobileNo.touched || MobileNo.dirty)">
+                    Must have only digits
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="MobileNo.errors?.['minlength'] && ( MobileNo.touched || MobileNo.dirty)">
+                    Min numbers 10 only
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="MobileNo.errors?.['maxlength'] && ( MobileNo.touched || MobileNo.dirty)">
+                    Max numbers 10 only
+                </div>
+            </div>
+            <div>
+                <div class="field space">
+                    <span class="fa fa-envelope"></span>
+                    <input type="text" class="form-control" id="EMAIL" formControlName="EMAIL"
+                        [(ngModel)]="user.emailId" placeholder="EmailId">
+                </div>
+                <div class="form-text text-danger"
+                    *ngIf="Email.errors?.['required'] && ( Email.touched || Email.dirty)">
+                    Email required
+                </div>
+                <div class="form-text text-danger" *ngIf="Email.errors?.['pattern'] && ( Email.touched || Email.dirty)">
+                    Must End with (@gmail,@yahooo).com avoid special charcters in id.
+                </div>
+            </div>
+
+            <div class="field space">
+                <input type="submit" [disabled]="registerform.invalid" value="SIGN UP">
+            </div>
+
+        </form>
+    </div>
+</div>

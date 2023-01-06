@@ -1,0 +1,202 @@
+<div class="container">
+    <h1>ORDERS</h1>
+    <div class="box" *ngIf="displaybooking">
+
+
+        <table class="table table-striped">
+
+            <thead>
+
+                <tr>
+
+                    <th scope="col">BookingId&nbsp; &nbsp;<i class="fa fa-sort"></i>
+                    </th>
+
+                    <th scope="col">UserId&nbsp; &nbsp;<i class="fa fa-sort"></i></th>
+
+                    <th scope="col">ProductId</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">OrderId</th>
+                    <th scope="col">Invoice</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let item of bookingLists">
+
+                    <th scope="row"> {{item.id}}</th>
+
+                    <td>{{item.userId}}</td>
+                    <td>{{item.productId}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.cost}}</td>
+                    <td>{{item.paymentId}}</td>
+                    <td> <button type="button" class="btn btn-link" (click)="displayinvoice(item.paymentId)"><span
+                                class="bi bi-eye-fill"></span></button>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+</div>
+
+<div class="receipt" *ngIf="displayform">
+
+
+    <div id="htmlData">
+
+        <div class="bootdey">
+            <div class="row">
+                <div class="col-10 col-sm-offset-1">
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-large">
+                            <h4>
+                                <i class="ace-icon fa fa-heartbeat"></i>
+                                <b class="title">Smart Diagnostic </b>
+                                <div class="widget-toolbar no-border invoice-info">
+
+                                    <span class="invoice-info-label">Date: </span>
+                                    <span class="blue"> {{currentDate}}</span>
+                                </div>
+
+
+                            </h4>
+
+
+
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main padding-24">
+                                <div class="row">
+                                    <div class="col-sm-6" style="padding-left: 5px;">
+                                        <div class="row">
+                                            <div class="col-xs-10 label label-lg label-info arrowed-in arrowed-right">
+                                                <b class="companyinfo ">Company Info</b>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul class="list-unstyled spaced">
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>
+                                                    Roxana Towars , Begumpet
+                                                </li>
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>
+                                                    500016
+                                                </li>
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>
+                                                    Telangana, India
+                                                </li>
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>
+                                                    Phone:
+                                                    <b>256-211-333</b>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>
+                                                    Paymant Info - Online
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- /.col -->
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div
+                                                class="col-xs-11 label label-lg label-success arrowed-in arrowed-right">
+                                                <b class="companyinfo">Customer Info</b>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul class="list-unstyled  spaced">
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>&nbsp; Name: {{user.name}}
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>&nbsp; Age:
+                                                    {{user.id}}
+                                                </li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>&nbsp;Email:
+                                                    {{user.emailId}}
+                                                </li>
+
+                                                <li class="divider"></li>
+
+                                                <li>
+                                                    <i class="ace-icon fa fa-circle blue"></i>
+                                                    &nbsp;Mobile: {{user.mobileNumber}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- /.col -->
+                                </div><!-- /.row -->
+                                <div class="space"></div>
+                                <div class="orderlist">
+                                    <table class="table table-hover">
+                                        <thead class="tablehead">
+                                            <tr>
+                                                <th class="center">#</th>
+                                                <th>Booking Id</th>
+                                                <th>UserId</th>
+                                                <th class="hidden-xs">PackageId</th>
+                                                <th class="hidden-480">Quantity</th>
+                                                <th class="hidden-480">paymentId</th>
+                                                <th>Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let book of booking;let i = index">
+                                                <td class="center">{{i+1}}</td>
+
+                                                <td> {{book.id}} </td>
+                                                <td> {{book.userId}} </td>
+                                                <td class="hidden-xs"> {{book.productId}} </td>
+                                                <td class="hidden-480"> {{book.quantity}} </td>
+                                                <td class="text-center"> {{book.paymentId}} </td>
+                                                <td class="text-center"> {{book.cost}} </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="hr hr8 hr-double hr-dotted"></div>
+                                <div class="total">
+                                    <strong> Total amount :{{totalCost}}</strong>
+                                </div>
+
+                                <div class="thankyou">
+                                    <b>THANK YOU! </b><br>
+                                    We are here to find your health problem and satisfy with our services.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div *ngIf="displayform" style="padding-left:300px ;">
+    <button class="btn btn-primary" (click)="makepdf()">Download</button>
+</div>

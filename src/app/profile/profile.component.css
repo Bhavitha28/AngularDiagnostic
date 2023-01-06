@@ -1,0 +1,79 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #f6d365;
+    height: 400px;
+
+    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+
+h1 {
+    color: green;
+    text-align: left;
+    font-weight: bold;
+}
+
+.vh-100 {
+    background-color: #f4f5f7;
+}
+
+.text-white {
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+}
+
+.img-fluid {
+    width: 150px;
+    height: 200px
+}
+
+.card-body {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.container {
+    padding-left: 150px;
+    padding-top: 120px;
+    padding-right: 300px;
+}
+
+.content {
+
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 999;
+    width: 370px;
+    text-align: center;
+    padding: 60px 32px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+}
+
+.sub {
+    padding-left: 20px;
+    text-align: center;
+}
+
+.field {
+    position: relative;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.94);
+}
+
+.field span {
+    color: #222;
+    width: 40px;
+    line-height: 45px;
+    padding: 0 10px;
+}
+
+.element {
+    padding-bottom: 15px;
+}

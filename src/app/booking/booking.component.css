@@ -1,0 +1,57 @@
+.container {
+
+
+    padding-top: 80px;
+    padding-left: 120px;
+
+}
+
+h1 {
+    padding-bottom: 20px;
+    text-align: left;
+    color: green;
+    font-weight: bold;
+
+}
+
+.search {
+    float: left;
+}
+
+.records {
+    padding-left: 750px;
+}
+
+select {
+    border-radius: 5px;
+    background-color: #2687c0;
+    color: #e3f2fd;
+}
+
+.table {
+    width: 100%;
+}
+
+.table-striped {
+    background: rgb(226, 228, 236);
+    ;
+}
+
+.table thead {
+    background: rgb(137, 177, 237);
+}
+
+.table td {
+    text-align: left;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 30px;
+
+}
+
+.page {
+    float: right;
+}

@@ -1,0 +1,72 @@
+<div class="container ">
+    <h1 class="text-left">Booking List</h1>
+    <div class="d-flex flex-row bg-secondary">
+
+        <div class="search">
+
+            <input type="text" placeholder=" Search by PaymentId" [(ngModel)]="searchInput.paymentId"
+                style=" border-radius:10px;width:150px;border: 2px solid #1c59bb;">
+            <div *ngIf="(bookingLists| filterBy:searchInput).length===0">No Match</div>
+        </div>
+
+        <div class="records">
+
+            <select (change)="onTableSizeChangeEvent($event)">
+                <option>No Of Records</option>
+                <option *ngFor="let size of tableSizes">
+
+                    {{size}}
+
+                </option>
+
+            </select>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr>
+
+                <th scope="col" (click)="sort('id')">BookingId&nbsp; &nbsp;<i class="fa fa-sort"></i>
+                </th>
+
+                <th scope="col" (click)="sort('location')">UserId&nbsp; &nbsp;<i class="fa fa-sort"></i></th>
+
+                <th scope="col">ProductId</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Cost</th>
+                <th scope="col">PaymentId</th>
+                <th scope="col">createdOn</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let item of bookingLists| orderBy: orderHeader:isDescOrder |filterBy:searchInput
+                        | paginate :{itemsPerPage:tableSize, 
+                        currentPage: page,
+                        totalItems:count } ; let i=index">
+
+
+                <th scope="row"> {{item.id}}</th>
+
+                <td>{{item.userId}}</td>
+                <td>{{item.productId}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.cost}}</td>
+                <td>{{item.paymentId}}</td>
+                <td>{{item.createdOn.slice(0,10)}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page">
+        <pagination-controls previousLabel="prev" nextLabel="next" (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+</div>
